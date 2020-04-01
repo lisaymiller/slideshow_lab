@@ -38,21 +38,30 @@ let slideshow = {
 
 
 	playInterval: null,
+
+
     play: function() {
+
         var self = this;
-        this.playInterval = setInterval(function() {
-            self.nextPhoto()
-        }, 2000)
-        return slideshow.nextPhoto();
+        this.playInterval = setInterval(function() 
+        {
+            self.nextPhoto();
+            console.log(self.getCurrentPhoto());
+        }, 
+        	2000)
     },
+
+
     pause: function() {
+
         clearInterval(this.playInterval);
+
     }
 
 
 }
 
-slideshow.play();
+console.log(slideshow.play());
 
 // console.log(slideshow.getCurrentPhoto());
 // console.log(slideshow.nextPhoto());
