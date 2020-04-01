@@ -33,38 +33,42 @@ let slideshow = {
 		return this.photoList[this.currentPhotoIndex];
 			},
 
+
+
+
+
 	playInterval: null,
-
-	play: function() {
-		var self = this;
-		this.playInterval = setInterval (function(){self.nextPhoto()}, 2000)
-
-	},
-
-	pause: function(){
-		clearInterval(this.playInterval);
-
-	}
-
+    play: function() {
+        var self = this;
+        this.playInterval = setInterval(function() {
+            self.nextPhoto()
+        }, 2000)
+        return slideshow.nextPhoto();
+    },
+    pause: function() {
+        clearInterval(this.playInterval);
+    }
 
 
 }
 
-console.log(slideshow.getCurrentPhoto());
-console.log(slideshow.nextPhoto());
-console.log(slideshow.nextPhoto());
-console.log(slideshow.nextPhoto());
-console.log(slideshow.nextPhoto());
-console.log(slideshow.nextPhoto());
+slideshow.play();
+
+// console.log(slideshow.getCurrentPhoto());
+// console.log(slideshow.nextPhoto());
+// console.log(slideshow.nextPhoto());
+// console.log(slideshow.nextPhoto());
+// console.log(slideshow.nextPhoto());
+// console.log(slideshow.nextPhoto());
 
 
-console.log(slideshow.getCurrentPhoto());
+// console.log(slideshow.getCurrentPhoto());
 
-console.log(slideshow.prevPhoto());
-console.log(slideshow.prevPhoto());
-console.log(slideshow.prevPhoto());
-console.log(slideshow.prevPhoto());
-console.log(slideshow.prevPhoto());
+// console.log(slideshow.prevPhoto());
+// console.log(slideshow.prevPhoto());
+// console.log(slideshow.prevPhoto());
+// console.log(slideshow.prevPhoto());
+// console.log(slideshow.prevPhoto());
 
 
 
