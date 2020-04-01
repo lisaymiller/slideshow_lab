@@ -6,37 +6,65 @@ let slideshow = {
 	
 	nextPhoto: function() {
 			
-			if (this.currentPhotoIndex <= this.photoList.length) {
-				return this.photoList[++this.currentPhotoIndex]
-			}
-			else { 
+			if (this.currentPhotoIndex < this.photoList.length-1) {
+				this.currentPhotoIndex++;
+
+			} else if (this.currentPhotoIndex >= this.photoList.length-1){
 				return "End of slideshow";
-			}
+				}
+			
+			return this.photoList[this.currentPhotoIndex];
 		},
 
 	prevPhoto: function() {
 
-			if (this.currentPhotoIndex >= 0) {
-				return this.photoList[--this.currentPhotoIndex];
-			}
-			else { 
+			if (this.currentPhotoIndex > 0) {
+				this.currentPhotoIndex--;
+			
+			} else if (this.currentPhotoIndex === 0){
 				return "Beginning of slideshow";
-			}
+				}
+			
+			return this.photoList[this.currentPhotoIndex];
 		},
 
 	getCurrentPhoto: function() {
+
 		return this.photoList[this.currentPhotoIndex];
-			}
+			},
+
+	playInterval: null,
+
+	play: function() {
+		var self = this;
+		this.playInterval = setInterval (function(){self.nextPhoto()}, 2000)
+
+	},
+
+	pause: function(){
+		clearInterval(this.playInterval);
+
+	}
 
 
 
 }
+
 console.log(slideshow.getCurrentPhoto());
-// console.log(slideshow.nextPhoto());
-// console.log(slideshow.getCurrentPhoto())
-// console.log(slideshow.prevPhoto());
+console.log(slideshow.nextPhoto());
+console.log(slideshow.nextPhoto());
+console.log(slideshow.nextPhoto());
+console.log(slideshow.nextPhoto());
+console.log(slideshow.nextPhoto());
 
 
-for (i of slideshow.photoList) {
-	console.log(slideshow.nextPhoto())
-}
+console.log(slideshow.getCurrentPhoto());
+
+console.log(slideshow.prevPhoto());
+console.log(slideshow.prevPhoto());
+console.log(slideshow.prevPhoto());
+console.log(slideshow.prevPhoto());
+console.log(slideshow.prevPhoto());
+
+
+
